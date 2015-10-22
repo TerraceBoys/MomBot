@@ -1,4 +1,5 @@
 var HTTPS = require('https');
+var profanity = require('profanity-util');
 var botID = process.env.BOT_ID;
 
 // Request attributes
@@ -18,9 +19,13 @@ var botID = process.env.BOT_ID;
 function respond() {
   var request = JSON.parse(this.req.chunks[0]);
   var statusCheck = /^mombot\?/i;
+  var badWords = profanity.check(request.text);
 
-  // statusCheck
-  if (request.text && statusCheck.test(request.text)) {
+if (request.text && badWords.length != 0) {
+    this.res.writeHead(200);
+    postMessage("Watch your language!");
+    this.res.end();
+  } else if (request.text && statusCheck.test(request.text)) {
     this.res.writeHead(200);
     postMessage("I'm here darling");
     this.res.end();

@@ -1,7 +1,8 @@
-var http, director, bot, router, server, port;
+var http, director, profanity, bot, router, server, port;
 
 http        = require('http');
 director    = require('director');
+profanity   = require('profanity-util');
 bot         = require('./bot.js');
 
 router = new director.http.Router({

@@ -23,11 +23,15 @@ function respond() {
 
 if (request.text && badWords.length != 0) {
     this.res.writeHead(200);
-    postMessage("Watch your language!");
+    setTimeout(function() {
+      postMessage("Watch your language!");
+    }, 1500);
     this.res.end();
   } else if (request.text && statusCheck.test(request.text)) {
     this.res.writeHead(200);
-    postMessage("I'm here darling");
+    setTimeout(function() {
+      postMessage("I'm here darling");
+    }, 1500);
     this.res.end();
   } else {
     console.log("don't care");

@@ -24,7 +24,7 @@ function respond() {
 if (request.text && badWords.length != 0) {
     this.res.writeHead(200);
     setTimeout(function() {
-      postMessage("Watch your language!");
+      postMessage("Watch your language fucker");
     }, 1500);
     this.res.end();
   } else if (request.text && statusCheck.test(request.text)) {
